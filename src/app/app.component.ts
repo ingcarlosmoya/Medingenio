@@ -27,9 +27,9 @@ export class AppComponent {
         this.router.navigate(['']);
       }
 
-      console.log(this._isLoggedIn);
-      console.log(this._userDisplayName);
-      console.log(this._userEmail);
+      // console.log(this._isLoggedIn);
+      // console.log(this._userDisplayName);
+      // console.log(this._userEmail);
     })
   }
 }

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AuthService } from './providers/auth.service';
@@ -9,8 +10,11 @@ import { AngularFireAuth } from 'angularfire2/auth'
 import{NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {AngularFireModule} from 'angularfire2';
-import { LoginPageComponent } from './login-page/login-page.component';
-import { HomePageComponent } from './home-page/home-page.component';
+import { LoginComponent } from './login/login.component';
+import { EmailComponent } from './email/email.component';
+import { SignupComponent } from './signup/signup.component';
+import { MembersComponent } from './members/members.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBtgYaZKcddc5Xsai6Et1V-drVJXNuOobo",
@@ -22,21 +26,28 @@ export const firebaseConfig = {
 }
 
 const routes: Routes = [
-  {path: '', component: HomePageComponent},
-  {path: 'login', component: LoginPageComponent},
+  {path: '', component: LoginComponent},
+  { path: 'login', component: LoginComponent },
+  { path: 'reset-password', component: ResetPasswordComponent },
+  { path: 'login-email', component: EmailComponent },
+  { path: 'members', component: MembersComponent}
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent,
-    HomePageComponent
+    LoginComponent,
+    EmailComponent,
+    SignupComponent,
+    MembersComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig),
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule
   ],
   providers: [
     AuthService,
