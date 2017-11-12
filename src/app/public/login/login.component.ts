@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AuthService } from '../providers/auth.service';
+import { NgForm } from '@angular/forms';
+// import { Component, ViewChild } from '@angular/core';
+
+import { AuthService } from './../../providers/auth.service';
+import { AppValidationMessages } from './../../app-validation-messages';
 
 @Component({
   selector: 'app-login',
@@ -19,25 +23,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(formData) {
-    if (formData.valid) {
-      this.authService.loginWithEmailAndPassword(formData.value.email, formData.value.password)
-        .then(
-        (success) => {
-          this.router.navigate(['members']);
-        }).catch(
-        (err) => {
-          console.log(err);
-          this.error = this.authService.validateError(err);
-        })
-    }
-  }
-
-
   checkAuthentication() {
-    console.log(this.authService.checkAuthetication());
     if (this.authService.checkAuthetication()) {
-      console.log('fa');
       this.router.navigate(['members']);
     }
   }
@@ -46,7 +33,6 @@ export class LoginComponent implements OnInit {
     this.authService.loginWithFacebook().then((auth) => {
       this.router.navigate(['']);
     }).catch((err) => {
-      console.log(err);
       this.authService.validateError(err);
     });
   }
@@ -55,13 +41,29 @@ export class LoginComponent implements OnInit {
     this.authService.loginWithGoogle().then((auth) => {
       this.router.navigate(['']);
     }).catch((err) => {
-      console.log(err);
       this.authService.validateError(err);
     });
+  }
+
+  onFocusInput(){
+    this.error = "";
+  }
+
+  onSubmit(loginForm) {
+    if (loginForm.valid) {
+      this.authService.loginWithEmailAndPassword(loginForm.value.email, loginForm.value.password)
+        .then(
+        (success) => {
+          this.router.navigate(['/home']);
+        }).catch(
+        (err) => {
+          console.log(err);
+          this.error = this.authService.validateError(err);
+        })
+    }
   }
 
   resetPassword(){
     this.router.navigate(['reset-password'])
   }
-
 }

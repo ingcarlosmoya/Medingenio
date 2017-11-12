@@ -2,19 +2,32 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 
-import { AppComponent } from './app.component';
+
 import { AuthService } from './providers/auth.service';
 import { AngularFireAuth } from 'angularfire2/auth'
 
 import{NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {AngularFireModule} from 'angularfire2';
-import { LoginComponent } from './login/login.component';
-import { EmailComponent } from './email/email.component';
-import { SignupComponent } from './signup/signup.component';
-import { MembersComponent } from './members/members.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
+
+
+//Public Component
+import { AppComponent } from './app.component';
+import { LoginComponent } from './public/login/login.component';
+import { ResetPasswordComponent } from './public/reset-password/reset-password.component';
+
+//Secure Component
+import { HomeComponent } from './secure/home/home.component';
+
+//Layout
+import { SecureComponent } from './layout/secure/secure.component';
+import { PublicComponent } from './layout/public/public.component';
+
+
+// Common
+import { AuthGuard } from './../common/auth.guard';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBtgYaZKcddc5Xsai6Et1V-drVJXNuOobo",
@@ -25,33 +38,26 @@ export const firebaseConfig = {
   messagingSenderId: "1038983178123"
 }
 
-const routes: Routes = [
-  {path: '', component: LoginComponent},
-  { path: 'login', component: LoginComponent },
-  { path: 'reset-password', component: ResetPasswordComponent },
-  { path: 'login-email', component: EmailComponent },
-  { path: 'members', component: MembersComponent}
-]
-
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    EmailComponent,
-    SignupComponent,
-    MembersComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    SecureComponent,
+    PublicComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig),
-    RouterModule.forRoot(routes),
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [
     AuthService,
-    AngularFireAuth
+    AngularFireAuth,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

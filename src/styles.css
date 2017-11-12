@@ -4,6 +4,31 @@
 	margin-top: 60px;
 }
 
+.login-message{
+	letter-spacing: 0px;
+	line-height: 80%;
+	margin-bottom: 5px;
+}
+
+.login-legend h6{
+	font-size: 13px;
+}
+
+.login-message a{
+    color:#343a40;
+    text-decoration: none;
+}
+
+.login-logo{
+    height: 110px;
+    width: 110px;
+}
+
+.login-alert{
+	margin-top: 5px;
+	font-size: 12px;
+}
+
 form[role=login] {
 	color: #5d5d5d;
 	background: #f2f2f2;
@@ -12,20 +37,28 @@ form[role=login] {
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 }
-	form[role=login] img {
-		display: block;
-		margin: 0 auto;
-		margin-bottom: 35px;
-	}
-	form[role=login] input,
+	
+
 	form[role=login] button {
-		font-size: 18px;
 		margin: 2px 0;
 	}
 	form[role=login] > div {
 		text-align: center;
 	}
+
+	form[role=login] input {
+		margin: 2px 0;
+		font-size: 12px;
+	}
 	
+form[role=login] img {
+		display: block;
+		margin: 0 auto;
+		margin-bottom: 5px;
+	}
+
+
+/* 
 .form-links {
 	text-align: center;
 	margin-top: 1em;
@@ -33,4 +66,4 @@ form[role=login] {
 }
 	.form-links a {
 		color: #fff;
-	}
+	} */

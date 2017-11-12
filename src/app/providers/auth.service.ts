@@ -19,7 +19,13 @@ canActivate(){
 }
 
   checkAuthetication(){
-    return this.afAuth.auth.currentUser;
+    if(this.afAuth.auth.currentUser){
+      return true;
+    }
+    else{
+      return false;
+    }
+    
   }
 
   createUser(formData:any){
@@ -58,7 +64,7 @@ canActivate(){
         errorMessage = "Existe un problema con la autorizacion. Por favor comuniquese con el administrador!"
       }
       else if(errorCode == 'auth/invalid-email'){
-        errorMessage = "El correo esta mal formateado!";
+        errorMessage = "El correo electrónico ingresado no tiene el formato correcto!";
       }
       else if(errorCode == 'auth/popup-closed-by-user'){
         errorMessage = "";
