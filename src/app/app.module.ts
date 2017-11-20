@@ -10,7 +10,8 @@ import { AngularFireAuth } from 'angularfire2/auth'
 
 import{NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
-import {AngularFireModule} from 'angularfire2';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 
 //Public Component
@@ -51,6 +52,7 @@ export const firebaseConfig = {
     BrowserModule,
     NgbModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule,
     FormsModule,
     AppRoutingModule
   ],
