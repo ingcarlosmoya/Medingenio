@@ -33,18 +33,9 @@ export class AuthService {
 
   }
 
-  canActivate() {
-    console.log('it is here')
-    if (this.checkAuthetication()) {
-      this.router.navigate(['login']);
-    }
-    else {
-      this.router.navigate(['members']);
-    }
-  }
-
   checkAuthetication() {
     if (this.afAuth.auth.currentUser) {
+      console.log(this.afAuth.auth.currentUser);
       return true;
     }
     else {
@@ -60,11 +51,7 @@ export class AuthService {
   }
 
   loginWithEmailAndPassword(email: string, password: string) {
-    return this.afAuth.auth.signInWithEmailAndPassword(email, password)
-      .then((credential) => {
-        console.log(credential);
-        this.updateUserData(credential)
-      });
+    return this.afAuth.auth.signInWithEmailAndPassword(email, password);
   }
 
   loginWithFacebook() {
@@ -76,7 +63,8 @@ export class AuthService {
   }
 
   logout() {
-    return this.afAuth.auth.signOut();
+    this.afAuth.auth.signOut();
+    this.router.navigate(['login']);
   }
 
   ResetPassword(email: string) {
@@ -109,7 +97,10 @@ export class AuthService {
       else if (errorCode == 'auth/popup-closed-by-user') {
         errorMessage = "";
       }
-      else if (errorCode = 'auth/user-not-found') {
+      else if(errorCode == 'auth/wrong-password'){
+        errorMessage = "Contraseña invalida!"
+      }
+      else if (errorCode == 'auth/user-not-found') {
         errorMessage = "Este correo no esta autorizado, por favor verifiquelo de nuevo!"
       }
       else {

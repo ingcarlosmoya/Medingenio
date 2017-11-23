@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from './../../providers/auth.service';
 
 @Component({
   selector: 'app-secure',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SecureComponent implements OnInit {
 
-  constructor() { }
+  constructor(public auth: AuthService) { }
 
   ngOnInit() {
+  }
+
+  logOut(){
+    this.auth.logout();
   }
 
 }
