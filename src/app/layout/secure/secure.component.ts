@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './../../providers/auth.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-secure',
@@ -8,12 +9,17 @@ import { AuthService } from './../../providers/auth.service';
 })
 export class SecureComponent implements OnInit {
 
-  constructor(public auth: AuthService) { }
+  companyName: string;
 
-  ngOnInit() {
+  constructor(public auth: AuthService) {
   }
 
-  logOut(){
+  ngOnInit() {
+    this.auth.getUser();
+    this.auth.getCompany();
+  }
+
+  logOut() {
     this.auth.logout();
   }
 

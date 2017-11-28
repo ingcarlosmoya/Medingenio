@@ -12,6 +12,11 @@ interface User {
   photoURL?: string;
   displayName?: string;
   favoriteColor?: string;
+  companyId?: string;
+}
+
+interface Company {
+  businessName: string;
 }
 
 
@@ -19,18 +24,12 @@ interface User {
 export class AuthService {
 
   user: Observable<User>;
+  company: Observable<Company>;
+  userDoc: AngularFirestoreDocument<User>;
+  companyDoc: AngularFirestoreDocument<Company>;
+
 
   constructor(public afAuth: AngularFireAuth, private afs: AngularFirestore, public router: Router) {
-    //// Get auth data, then get firestore user document || null
-    this.user = this.afAuth.authState
-      .switchMap(user => {
-        if (user) {
-          return this.afs.doc<User>(`users/${user.uid}`).valueChanges()
-        } else {
-          return Observable.of(null)
-        }
-      })
-
   }
 
   checkAuthetication() {
@@ -48,6 +47,19 @@ export class AuthService {
     return this.afAuth.auth.createUserWithEmailAndPassword(
       formData.value.email,
       formData.value.password);
+  }
+
+  getCompany() {
+    this.user.subscribe((user) => {
+      this.companyDoc = this.afs.doc(`companies/${user.companyId}`);
+      this.company = this.companyDoc.valueChanges();
+    })
+  }
+  getUser() {
+    if (this.checkAuthetication()) {
+      this.userDoc = this.afs.doc(`users/${this.afAuth.auth.currentUser.uid}`);
+      this.user = this.userDoc.valueChanges();
+    }
   }
 
   loginWithEmailAndPassword(email: string, password: string) {
@@ -97,7 +109,7 @@ export class AuthService {
       else if (errorCode == 'auth/popup-closed-by-user') {
         errorMessage = "";
       }
-      else if(errorCode == 'auth/wrong-password'){
+      else if (errorCode == 'auth/wrong-password') {
         errorMessage = "Contraseña invalida!"
       }
       else if (errorCode == 'auth/user-not-found') {

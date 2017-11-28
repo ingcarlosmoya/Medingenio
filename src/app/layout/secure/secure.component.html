@@ -6,11 +6,12 @@
         <strong>Medingenio</strong>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-        aria-expanded="false" aria-label="Toggle navigation">
+    (click)="isNavbarCollapsed = !isNavbarCollapsed"
+         aria-expanded="false" [attr.aria-expanded]="!navbarCollapsed" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="!isNavbarCollapsed">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                 <a class="nav-link" href="#">Home
@@ -51,6 +52,12 @@
                                     <div class="mini-profile-email font-italic">
                                         <small>{{ user.email }}</small>
                                     </div>
+                                    <div class="mini-profile-company">
+                                        <small *ngIf="auth.company | async as company" class="font">
+                                            <strong>{{company.businessName}}</strong>
+                                        </small>
+                                    </div>
+
                                     <button class="btn btn-outline-info btn-block btn-sm">Actualizar Datos</button>
                                 </div>
                             </div>
