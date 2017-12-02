@@ -9,7 +9,7 @@ namespace Medingenio.Webapi.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "Medingenio.Webapi.Models.ApplicationDbContext";
         }
 

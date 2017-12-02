@@ -7,13 +7,13 @@ namespace Medingenio.Webapi.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class InitialCompanyAndRegionModel : IMigrationMetadata
+    public sealed partial class SecurityMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCompanyAndRegionModel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(SecurityMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "201712010031103_InitialCompanyAndRegionModel"; }
+            get { return "201712022118228_SecurityMigration"; }
         }
         
         string IMigrationMetadata.Source

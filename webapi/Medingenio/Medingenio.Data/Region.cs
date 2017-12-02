@@ -15,7 +15,7 @@ namespace Medingenio.Data
         {
             List<Model.City> cities;
 
-            using (var context = new RegionContext())
+            using (var context = new MedingenioContext())
             {
                cities = context.Cities.Where(c => c.StateId == stateId).ToList();
             }
@@ -27,7 +27,7 @@ namespace Medingenio.Data
         {
             List<Model.State> states;
 
-            using (var context = new RegionContext())
+            using (var context = new MedingenioContext())
             {
                 states = context.States.ToList();
             }

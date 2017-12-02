@@ -215,18 +215,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711302027001_InitialCreate.cs" />
-    <Compile Include="Migrations\201711302027001_InitialCreate.Designer.cs">
-      <DependentUpon>201711302027001_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712010031103_InitialCompanyAndRegionModel.cs" />
-    <Compile Include="Migrations\201712010031103_InitialCompanyAndRegionModel.Designer.cs">
-      <DependentUpon>201712010031103_InitialCompanyAndRegionModel.cs</DependentUpon>
+    <Compile Include="Migrations\201712022118228_SecurityMigration.cs" />
+    <Compile Include="Migrations\201712022118228_SecurityMigration.Designer.cs">
+      <DependentUpon>201712022118228_SecurityMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\CompanyModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
@@ -303,18 +298,15 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711302027001_InitialCreate.resx">
-      <DependentUpon>201711302027001_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712010031103_InitialCompanyAndRegionModel.resx">
-      <DependentUpon>201712010031103_InitialCompanyAndRegionModel.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Medingenio.Business\Medingenio.Business.csproj">
       <Project>{53ae545a-e469-4f72-ba43-50ba580f3d02}</Project>
       <Name>Medingenio.Business</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201712022118228_SecurityMigration.resx">
+      <DependentUpon>201712022118228_SecurityMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

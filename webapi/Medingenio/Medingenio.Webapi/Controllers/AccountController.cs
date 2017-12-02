@@ -323,12 +323,11 @@ namespace Medingenio.Webapi.Controllers
         [Route("Register")]
         public async Task<IHttpActionResult> Register(RegisterBindingModel model)
         {
-            if (!ModelState.IsValid)
-            {
+            var company = new Business.Company();
+            if (!ModelState.IsValid || !company.CheckById(model.CompanyId))
                 return BadRequest(ModelState);
-            }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email, CompanyId = model.CompanyId};
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 

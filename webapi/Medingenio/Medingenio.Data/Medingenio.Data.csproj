@@ -49,9 +49,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Company.cs" />
+    <Compile Include="Context\MedingenioContext.cs" />
+    <Compile Include="Migrations\201712022216337_InitialModel.cs" />
+    <Compile Include="Migrations\201712022216337_InitialModel.Designer.cs">
+      <DependentUpon>201712022216337_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Region.cs" />
-    <Compile Include="Context\RegionContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -62,6 +68,11 @@
       <Project>{a1b45cba-b4fa-46bc-9612-87bc4e316038}</Project>
       <Name>Medingenio.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201712022216337_InitialModel.resx">
+      <DependentUpon>201712022216337_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

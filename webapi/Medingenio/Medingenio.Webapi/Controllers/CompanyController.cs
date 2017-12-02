@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
@@ -10,18 +12,17 @@ using Microsoft.AspNet.Identity;
 
 namespace Medingenio.Webapi.Controllers
 {
+    [RoutePrefix("api/Company")]
     public class CompanyController : ApiController
     {
         // GET: Company
-        [Authorize]
-        public async Task<IHttpActionResult> Post()
+        [HttpGet]
+        [Route("MenuByCompany")]
+        public HttpResponseMessage GetMenuByCompany(int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            return Ok();
+            var menu = new Business.Menu();
+            var result = menu.GetByCompany(id);
+            return Request.CreateResponse(HttpStatusCode.OK, result);
         }
 
 
