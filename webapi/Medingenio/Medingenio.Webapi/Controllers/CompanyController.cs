@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Http;
 using Medingenio.Webapi.Models;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace Medingenio.Webapi.Controllers
 {
@@ -25,6 +26,22 @@ namespace Medingenio.Webapi.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, result);
         }
 
+        // GET: Company
+        [HttpGet]
+        [Route("MenuAuth")]
+        public HttpResponseMessage GetMenuAuth(int id)
+        {
+            ApplicationUser user = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(HttpContext.Current.User.Identity.GetUserId());
+            if (user == null)
+                return Request.CreateResponse(HttpStatusCode.OK, false);
+
+            var menu = new Business.Menu();
+            var result = menu.GetMenuAuthByCompany(user.CompanyId, id);
+
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+
+
+        }
 
     }
 }

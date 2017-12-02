@@ -40,5 +40,11 @@ namespace Medingenio.Business
 
             return menuJson;
         }
+
+        public bool GetMenuAuthByCompany(int companyId, int id)
+        {
+            var menu = Data.Menu.GetByCompany(companyId);
+            return menu != null && menu.Any() && menu.Any(m => m.Id == id);
+        }
     }
 }
