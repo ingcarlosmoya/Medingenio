@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medingenio.Webapi", "Medingenio.Webapi\Medingenio.Webapi.csproj", "{438FBE0E-BB9C-4C31-9E65-4DEDDB418E06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medingenio.Data", "Medingenio.Data\Medingenio.Data.csproj", "{B8ABDB4C-1E8C-4FFC-99B4-528D264E79A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medingenio.Model", "Medingenio.Model\Medingenio.Model.csproj", "{A1B45CBA-B4FA-46BC-9612-87BC4E316038}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medingenio.Business", "Medingenio.Business\Medingenio.Business.csproj", "{53AE545A-E469-4F72-BA43-50BA580F3D02}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{438FBE0E-BB9C-4C31-9E65-4DEDDB418E06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{438FBE0E-BB9C-4C31-9E65-4DEDDB418E06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{438FBE0E-BB9C-4C31-9E65-4DEDDB418E06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{438FBE0E-BB9C-4C31-9E65-4DEDDB418E06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8ABDB4C-1E8C-4FFC-99B4-528D264E79A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8ABDB4C-1E8C-4FFC-99B4-528D264E79A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8ABDB4C-1E8C-4FFC-99B4-528D264E79A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8ABDB4C-1E8C-4FFC-99B4-528D264E79A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1B45CBA-B4FA-46BC-9612-87BC4E316038}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1B45CBA-B4FA-46BC-9612-87BC4E316038}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1B45CBA-B4FA-46BC-9612-87BC4E316038}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1B45CBA-B4FA-46BC-9612-87BC4E316038}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53AE545A-E469-4F72-BA43-50BA580F3D02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53AE545A-E469-4F72-BA43-50BA580F3D02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53AE545A-E469-4F72-BA43-50BA580F3D02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53AE545A-E469-4F72-BA43-50BA580F3D02}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
